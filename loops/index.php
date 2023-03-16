@@ -18,8 +18,16 @@ pra concatenar no php */
 // o < $num2 é a condição pra parar o loop.
 // o $i++ serve pra acrescentar mais um no valor
 
+/*
 $i = 0;
 do {
     $i++;
 } while (false);
 echo $i;
+*/
+
+$nomes = ['João', 'Maria', 'Pedro', 'Zé'];
+
+foreach ($nomes as $nome) { //nome é uma variável temporária pro sistema armazenar o dado do foreach
+    echo "<b>" . $nome . "</b>";
+}

@@ -39,9 +39,9 @@
             <b style="font-family:signika negative;">
                 <?php
 
-                echo "Nome de usuário: " . "</b>" . $_GET['nome'] . '<br>';
-                echo "<b>" . "Idade do usuário: " . "</b>" . $_GET['idade'] . '<br>';
-                echo "<b>" . "E-mail do usuário: " . "</b>" . $_GET['email'] . '<br>';
+                echo "Nome de usuário: " . "</b>" . $_POST['nome'] . '<br>';
+                echo "<b>" . "Idade do usuário: " . "</b>" . $_POST['idade'] . '<br>';
+                echo "<b>" . "E-mail do usuário: " . "</b>" . $_POST['email'] . '<br>';
 
                 ?>
         </a>

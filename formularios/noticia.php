@@ -39,7 +39,7 @@
         <b style="font-family:signika negative;">
     </body>
     <a style="font-family:signika negative;">
-        <form method="GET" action="exibir.php">
+        <form method="POST" action="exibir.php">
             Nome: <input type="text" name="nome"><br><br>
             Idade: <input type="number" name="idade"><br><br>
             E-mail: <input type="text" name="email"><br><br>

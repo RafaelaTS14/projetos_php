@@ -8,7 +8,30 @@
     <title>Formulário</title>
 
 </head>
+<div class='center'>
+    <head>
+        <style>
+ .center {
+  margin: auto;
+  text-align:center;
+  border: 3px solid #B4D3B2;
+  border-radius: 2.0rem;
+  box-shadow: 10px 10px 5px #C7D7C9;
+  width: 50%;
+  padding: 10px;
+}
+</style>
+    </head>
+<body style="background-color:#D6E6DF;">
 
+<p style="font-family:verdana;"
+style:
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}> Preencha os dados abaixo: </p> 
+<b style="font-family:verdana;">
 <body>
     <div class="center">
         <form method="GET" action="exibir.php">

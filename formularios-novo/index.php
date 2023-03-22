@@ -37,8 +37,24 @@
 
         if (isset($_POST["enviado"])) {
 
-            if (empty($_POST["nome"])) {
-                echo '<p class="error">Preencha o campo nome!' . '</p>';
+            if (empty($_POST["nome"]) || strlen($_POST["nome"]) < 3 || strlen($_POST["nome"]) > 100) {
+                echo '<p class="error">Preencha um nome válido!' . '</p>';
+                die();
+            }
+            if (empty($_POST["email"]) || !filter_Var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+                echo '<p class="error">Preencha um e-mail válido!' . '</p>';
+                die();
+            }
+            if (empty($_POST["website"]) || !filter_Var($_POST["website"], FILTER_VALIDATE_URL)) {
+                echo '<p class="error">Preencha um website válido!' . '</p>';
+                die();
+            }
+            if (empty($_POST["comentario"])) {
+                echo '<p class="error">Preencha o campo e-mail!' . '</p>';
+                die();
+            }
+            if (empty($_POST["genero"])) {
+                echo '<p class="error">Preencha o campo e-mail!' . '</p>';
                 die();
             }
             $genero = "Não selecionado";

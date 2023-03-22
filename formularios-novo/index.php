@@ -45,29 +45,27 @@
                 echo '<p class="error">Preencha um e-mail válido!' . '</p>';
                 die();
             }
-            if (empty($_POST["website"]) || !filter_Var($_POST["website"], FILTER_VALIDATE_URL)) {
+            if (empty($_POST["website"]) && !filter_Var($_POST["website"], FILTER_VALIDATE_URL)) {
                 echo '<p class="error">Preencha um website válido!' . '</p>';
                 die();
             }
-            if (empty($_POST["comentario"])) {
-                echo '<p class="error">Preencha o campo e-mail!' . '</p>';
-                die();
-            }
-            if (empty($_POST["genero"])) {
-                echo '<p class="error">Preencha o campo e-mail!' . '</p>';
-                die();
+           
             }
             $genero = "Não selecionado";
             if (isset($_POST['genero'])) {
                 $genero = $_POST['genero'];
+                if($genero != "masculino" && "feminino" && "outros") {
+                echo "<p>Selecione um gênero válido!" . "</p>";
+                die();
+                }
+            
             }
-
             echo "<p>Nome: " . $_POST["nome"] . "<p>";
             echo "<p>E-mail: " . $_POST["email"] . "<p>";
             echo "<p>Website: " . $_POST["website"] . "<p>";
             echo "<p>Comentário: " . $_POST["comentario"] . "<p>";
             echo "<p>Gênero: " . $_POST["genero"] . "<p>";
-        }
+        
         ?>
 </body>
 

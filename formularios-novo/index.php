@@ -20,8 +20,8 @@
 
         <p class="error">* Obrigatório</p>
 
-        Nome: <input required name="nome" type="text"><span class="error">*</span><br><br>
-        E-mail: <input required name="email" type="e-mail"><span class="error">*</span><br><br>
+        Nome: <input name="nome" type="text"><span class="error">*</span><br><br>
+        E-mail: <input name="email" type="e-mail"><span class="error">*</span><br><br>
         Website: <input name="website" type="url"><br><br>
         Comentário: <textarea name="comentario" cols="30" rows="3"> </textarea><br><br>
         Gênero: <input name="genero" value=masculino type="radio"> Masculino
@@ -36,6 +36,16 @@
         <?php
 
         if (isset($_POST["enviado"])) {
+
+            if (empty($_POST["nome"])) {
+                echo '<p class="error">Preencha o campo nome!' . '</p>';
+                die();
+            }
+            $genero = "Não selecionado";
+            if (isset($_POST['genero'])) {
+                $genero = $_POST['genero'];
+            }
+
             echo "<p>Nome: " . $_POST["nome"] . "<p>";
             echo "<p>E-mail: " . $_POST["email"] . "<p>";
             echo "<p>Website: " . $_POST["website"] . "<p>";

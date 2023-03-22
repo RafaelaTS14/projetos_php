@@ -54,7 +54,7 @@
             $genero = "Não selecionado";
             if (isset($_POST['genero'])) {
                 $genero = $_POST['genero'];
-                if($genero != "masculino" && "feminino" && "outros") {
+                if($genero != "masculino" && $genero != "feminino" && $genero != "outros") {
                 echo "<p>Selecione um gênero válido!" . "</p>";
                 die();
                 }

@@ -1,4 +1,11 @@
 <?php
+
+if (!isset($_SESSION))
+    session_start();
+
+if (!isset($_SESSION['usuario']))
+    die('Você não está logado. ' . '<a href="login.php"> Clique aqui</a> para logar.');
+
 include('conexao.php');
 
 if (isset($_POST['email'])) {
@@ -22,12 +29,17 @@ if (isset($_POST['email'])) {
 </head>
 
 <body>
-    Cadastrar Senha
+    <h1>Cadastro de Usuários</h1>
     <form action="" method="post">
-        <input type="text" name="email">
-        <input type="text" name="senha">
+        <p><label for="">E-mail:</label>
+            <input type="text" name="email">
+        </p>
+        <p><label for="">Senha:</label>
+            <input type="text" name="senha">
+        </p>
         <button type="submit">Cadastrar Senha</button>
     </form>
+    <p><a href="logout.php">Sair</a></p>
 </body>
 
 </html>

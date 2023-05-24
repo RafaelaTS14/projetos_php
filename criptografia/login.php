@@ -12,7 +12,10 @@ if (isset($_POST['email'])) {
 
     $usuario = $sql_exec->fetch_assoc();
     if (password_verify($senha, $usuario['senha'])) {
-        echo "Usuário Logado";
+        if (!isset($_SESSION))
+            session_start();
+        $_SESSION['usuario'] = $usuario['id'];
+        header("Location: index.php");
     } else {
         echo "Falha ao logar! Senha ou e-mail incorretos.";
     }
@@ -32,9 +35,13 @@ if (isset($_POST['email'])) {
 
 <body>
     <form action="" method="post">
-        <input type="text" name="email"> <br>
-        <input type="password" name="senha"><br>
-        <button type="submit">Logar</button>
+        <p><label for="">E-mail:</label>
+            <input type="text" name="email">
+        </p>
+        <p><label for="">Senha:</label>
+            <input type="password" name="senha">
+        </p>
+        <button type="submit">Acessar</button>
     </form>
 </body>
 

@@ -18,8 +18,8 @@ $mail->Host = gethostbyname('smtp.office365.com');
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 $mail->Port = 587;
 $mail->SMTPAuth = true;
-$mail->Username = 'raftasschimaia@hotmail.com';
-$mail->Password = 'RafaelaTS14';
+$mail->Username = '';
+$mail->Password = '';
 
 $mail->setFrom('raftasschimaia@hotmail.com', "Rafaela Projeto");
 

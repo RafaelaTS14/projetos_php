@@ -70,7 +70,6 @@ $num_relatorio = $sql_query->num_rows;
                                             <th scope="row"><?php echo $relatorio['id']; ?></th>
                                             <td><?php echo $relatorio['nome']; ?></td>
                                             <td><?php echo $relatorio['titulo']; ?></td>
-                                            <td><?php echo $relatorio['']; ?></td>
                                             <td><?php echo date("d/m/Y H:i", strtotime($relatorio['dtcompra'])); ?></td>
                                             <td>R$ <?php echo number_format($relatorio['valor'], 2, ',', '.'); ?></td>
                                         </tr>

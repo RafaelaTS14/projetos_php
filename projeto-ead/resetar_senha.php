@@ -8,8 +8,8 @@ if (isset($_POST['email'])) {
     include('lib/generateRandomString.php');
     include('lib/enviarEmail.php');
 
-    $email - $mysqli->escape_string($_POST['email']);
-    $sql_query = $mysqli->query("SELECT id, nome as num FROM usuarios WHERE email = '$email'");
+    $email = $mysqli->escape_string($_POST['email']);
+    $sql_query = $mysqli->query("SELECT id, nome FROM usuarios WHERE email = '$email'");
     $result = $sql_query->fetch_assoc();
 
     if ($result['id']) {
@@ -19,11 +19,12 @@ if (isset($_POST['email'])) {
         $id_usuario = $result['id'];
         $mysqli->query("UPDATE usuarios SET senha = '$nova_senha_criptografada' WHERE id = '$id_usuario'");
 
-        enviarEmail("$email", "Sua nova senha", "
+        enviarEmail($email, "Sua nova senha", "
         <h1>Olá" . $result['nome'] . "! </h1>
         <p>Uma nova senha foi definida para a sua conta.</p>
         <p><b> Nova senha: </b>" . $nova_senha . "</p>
         ");
+
         $msg = "Caso seu e-mail exista em nosso sistema, você receberá uma nova senha em alguns minutos!";
     } else {
         $msg = "Caso seu e-mail exista em nosso sistema, você receberá uma nova senha em alguns minutos!";
@@ -110,9 +111,9 @@ if (isset($_POST['email'])) {
                 <div class="col-sm-12">
                     <!-- Authentication card start -->
                     <div class="login-card card-block auth-body mr-auto ml-auto">
-                        <form class="md-float-material">
+                        <form method="post" class="md-float-material">
                             <div class="text-center">
-                                <img src="layout/assets/images/auth/logo-dark.png" alt="logo.png">
+                                <img height="60" src="layout/assets/images/auth/logo-dark.png" alt="logo.png">
                             </div>
                             <div class="auth-box">
                                 <div class="row m-b-20">
@@ -120,12 +121,15 @@ if (isset($_POST['email'])) {
                                         <h3 class="text-left txt-primary">Esqueceu sua senha?</h3>
                                     </div>
                                 </div>
-                                <hr />
-                                <?php if ($msg !== false) { ?>
-                                    <div class="alert alert-succes" role="alert">
-                                    <?php echo $msg;
-                                } ?>
+                                <hr/>
+                                <?php if ($msg !== false) {
+                                     ?>
+                                    <div class="alert alert-success" role="alert">
+                                    <?php echo $msg; ?>
                                     </div>
+                                    <?php
+                                    } 
+                                 ?>
                                     <p style="color: black">Digite seu e-mail para redefinição de senha:</p>
                                     <div class="input-group">
                                         <input name="email" type="email" class="form-control" placeholder="Seu e-mail">

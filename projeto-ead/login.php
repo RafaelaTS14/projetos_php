@@ -115,7 +115,6 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
                                 <?php if ($erro !== false) { ?>
                                     <div class="alert alert-danger" role="alert">
                                         <?php echo $erro; ?>
-                                        } ?>
                                     </div>
                                 <?php
                                 }

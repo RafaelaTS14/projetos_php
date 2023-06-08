@@ -2,7 +2,7 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-function enviarEmail($destinario, $assunto, $mensagemHTML)
+function enviarEmail($email, $assunto, $mensagemHTML)
 {
 
     require 'vendor/autoload.php';
@@ -21,17 +21,16 @@ function enviarEmail($destinario, $assunto, $mensagemHTML)
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
     $mail->SMTPAuth = true;
-    $mail->Username = 'raftasschimaia@hotmail.com';
-    $mail->Password = 'RafaelaTS14';
+    $mail->Username = '***';
+    $mail->Password = '***';
 
-    $mail->setFrom('raftasschimaia@hotmail.com', "Rafaela Projeto");
+    $mail->setFrom('***', "Rafaela Projeto");
 
-    $mail->addAddress($destinario);
+    $mail->addAddress($email);
     $mail->Subject = $assunto;
     $mail->CharSet = 'UTF-8';
 
-    $mail->msgHTML($mensagemHTML);
-    $mail->AltBody = "Email enviado com sucesso. Parabéns! Deu tudo certo";
+    $mail->Body = $mensagemHTML;
 
     if ($mail->send()) {
         return true;

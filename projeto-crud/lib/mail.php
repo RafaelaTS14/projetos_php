@@ -21,10 +21,10 @@ function enviar_email($destinario, $assunto, $mensagemHTML)
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
     $mail->SMTPAuth = true;
-    $mail->Username = '';
-    $mail->Password = '';
+    $mail->Username = '***';
+    $mail->Password = '***';
 
-    $mail->setFrom('raftasschimaia@hotmail.com', "Rafaela Projeto");
+    $mail->setFrom('***', "Rafaela Projeto");
 
     $mail->addAddress($destinario);
     $mail->Subject = $assunto;
